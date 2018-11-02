@@ -13,7 +13,6 @@ public class ExpenseController {
     @Autowired
     ExpenseService expenseService;
 
-
     @PostMapping("/addExpense")
     public String addExpense(ExpenseDto expenseDto) {
         Expense expense = expenseService.addExpense(expenseDto);
