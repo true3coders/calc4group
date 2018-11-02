@@ -1,14 +1,21 @@
 package org.calc4group.services;
 
 import org.calc4group.entities.User;
+import org.calc4group.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManagementService {
+public class UserService {
     //some dummy for now service, just to make project architecture
 
+    @Autowired
+    UserRepository userRepository;
+
     public User getUserById(String usedId) {
+
+
         // TODO: 29.10.2018 Get User from DB
         User user = new User();
         return user;
