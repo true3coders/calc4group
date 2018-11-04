@@ -21,7 +21,7 @@ public class Expense {
     @ManyToOne
     private User whoPaid;
 
-    @OneToMany()
+    @ManyToMany()
     private List<User> paidFor;
 
 }
