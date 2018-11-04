@@ -6,7 +6,8 @@ import org.calc4group.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/users")
+@RestController()
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -15,7 +16,7 @@ public class UserController {
     @PostMapping("/createUser")
     public String createUser(UserDto userDto) {
         User user = userService.addUser(userDto);
-        return user.getId().toString();
+        return user.getUserId().toString();
     }
 
     @DeleteMapping("/deleteUser/{user_id}")

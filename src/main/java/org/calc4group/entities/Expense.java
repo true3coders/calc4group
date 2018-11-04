@@ -12,16 +12,16 @@ public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "expense_id")
-    private Integer id;
+    private Integer expenseId;
 
     private String description;
 
     private Long totalAmount;
 
-//    @ManyToOne
-//    private User whoPaid;
-//
-//    @OneToMany(mappedBy = "id")
-//    private List<User> paidFor;
+    @ManyToOne
+    private User whoPaid;
+
+    @OneToMany()
+    private List<User> paidFor;
 
 }
