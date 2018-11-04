@@ -1,32 +1,38 @@
 package org.calc4group.services;
 
+import org.calc4group.dtos.UserDto;
 import org.calc4group.entities.User;
 import org.calc4group.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserService {
-    //some dummy for now service, just to make project architecture
 
     @Autowired
     UserRepository userRepository;
 
-    public User getUserById(String usedId) {
-
-
-        // TODO: 29.10.2018 Get User from DB
+    public User addUser(UserDto userDto) {
         User user = new User();
-        return user;
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
+        return userRepository.save(user);
     }
 
-    public List<User> parseListOfUsers(String[] usedIds) {
-        // TODO: 29.10.2018 WORK with DB
-        List<User> result = new ArrayList<>();
-        for (String usedId : usedIds) {
-            result.add(getUserById(usedId));
+    public User getUserById(Integer userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+    public List<User> getUsersByIds(List<Integer> userIds) {
+        return userRepository.findAllById(userIds);
+    }
+
+    public void deleteUser(Integer userId) {
+        if(userRepository.existsById(userId)){
+            userRepository.deleteById(userId);
         }
-        return result;
     }
 }
