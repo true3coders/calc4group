@@ -21,7 +21,9 @@ public class Expense {
     @ManyToOne
     private User whoPaid;
 
-    @ManyToMany()
+    @ManyToMany
+    @JoinTable(name = "expense_paid_for", joinColumns = @JoinColumn(name = "expense_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> paidFor;
 
 }
