@@ -25,6 +25,12 @@ public class Event {
     private String mainCurrency;
 
     @ManyToMany
+    @JoinTable(name = "event_members", joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> members;
-//    private List<Expense> expenses;
+
+    @ManyToMany
+    @JoinTable(name = "event_expense", joinColumns = @JoinColumn(name = "expense_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
+    private List<Expense> expenses;
 }
