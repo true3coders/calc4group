@@ -26,7 +26,5 @@ public class Event {
 
     @ManyToMany
     private List<User> members;
-
-    @ManyToMany(mappedBy = "paidFor")
-    private List<Expense> expenses;
+//    private List<Expense> expenses;
 }
