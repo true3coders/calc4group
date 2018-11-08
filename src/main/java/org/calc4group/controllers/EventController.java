@@ -43,7 +43,7 @@ public class EventController {
 
     private EventDto convertToDto(Event event) {
         return EventDto.builder()
-                .id(event.getEventId())
+                .eventId(event.getEventId())
                 .name(event.getName())
                 .mainCurrency(event.getMainCurrency())
                 .membersIds(event.getMembers().stream().map(User::getUserId).collect(Collectors.toList()))

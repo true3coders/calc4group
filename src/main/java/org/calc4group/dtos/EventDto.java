@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 public class EventDto {
 
-    private Integer id;
+    private Integer eventId;
     private String name;
     private String mainCurrency;
     private List<Integer> membersIds;

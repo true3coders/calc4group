@@ -43,7 +43,7 @@ public class EventServiceImpl implements EventService {
     }
 
     public Event updateEvent(EventDto eventDto) {
-        Optional<Event> eventOptional = eventRepository.findById(eventDto.getId());
+        Optional<Event> eventOptional = eventRepository.findById(eventDto.getEventId());
 
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
